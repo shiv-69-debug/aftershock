@@ -21,14 +21,6 @@ Two bounded incident-response agents use FalkorDB to investigate a synthetic dep
 
 **Tracks:** Agents That Act on Connected Data; Agent Memory and Coordination.
 
-## Is chat required?
-
-No. The [official challenge](https://www.wemakedevs.org/hackathons/falkordb) asks for:
-
-> “Build a working agent, or a group of agents, with FalkorDB as its context layer. The graph has to shape what the agent does, not sit on the side.”
-
-Neither that brief nor the [rules](https://www.wemakedevs.org/hackathons/falkordb/rules) requires a chat box. Persistent conversation history is listed as a Track 02 focus area, not as a universal requirement to build a chatbot. AFTERSHOCK uses direct controls and inspectable records instead. The retired chat UI and endpoint have been removed.
-
 ## Run locally
 
 Requires **Node.js 22+** and **Docker Desktop** with the Linux engine running.
@@ -43,6 +35,10 @@ Open **http://127.0.0.1:3000** (also available at `/workspace`). Keep the termin
 No model API key is required for the public workflow. The investigator API and responder use deterministic graph tools and policy checks. The internal investigator library retains optional model-based tool-ordering support, but that is not invoked by this UI or the sandbox worker and is not part of the demonstrated agent behavior.
 
 FalkorDB runs at `127.0.0.1:6379`; its browser is at **http://127.0.0.1:3002**. Compose persists data in `aftershock-data` with AOF. If the database is unavailable, the app shows a labeled visual preview and disables investigation/mutation controls.
+
+### Start a clean recording without deleting history
+
+Set `FALKORDB_GRAPH=aftershock_recording_01` in `.env.local`, restart the app, and click **Load scenario**. Use a new graph name for each clean rehearsal. The new graph starts with no migration or handoffs; existing graphs and their audit records remain available in FalkorDB Browser. Restore the previous graph name to return to that workspace.
 
 ### Graph configuration
 
@@ -114,7 +110,7 @@ The new process receives only the ID; it loads its context from FalkorDB. Refres
 - An executed sandbox configuration change with before/after verification.
 - A stored provenance chain back to supporting evidence.
 
-There is no MCP server and no PageRank/community-detection feature. Those are listed focus areas, not capabilities claimed by this project.
+The verified submission flow does not use MCP or PageRank/community detection. Experimental MCP/algorithm code is separately labeled and is not part of these coverage claims.
 
 ### Track 02 — Agent Memory and Coordination
 
@@ -123,7 +119,7 @@ There is no MCP server and no PageRank/community-detection feature. Those are li
 - Separate-process consumption and revalidation of the handoff.
 - Duplicate/concurrent consumption tests demonstrating a single mutation.
 
-There is no persistent chat history, per-user/tenant isolation, learned procedural-memory system, or large-scale concurrency benchmark. All browsers share one local workspace.
+The verified submission flow does not claim persistent chat history, per-user/tenant isolation, learned procedures, or a large-scale concurrency benchmark. Its browsers share one local workspace; the experimental upgrade is separate.
 
 ## Why FalkorDB is essential
 
@@ -149,7 +145,7 @@ The fixture only seeds the database and supplies the labeled disconnected previe
 
 The five executable tool queries are in **[src/lib/queries.ts](src/lib/queries.ts)** and the UI's **Graph queries** tab. Handoff/action queries are in **[src/lib/workflow.ts](src/lib/workflow.ts)**.
 
-Runtime values are parameterized. Queries have a five-second timeout. Impact traversal is bounded to six hops, and recall returns up to eight incident records. Policy-v1 audits remain stored but cannot authorize new actions; the seed migration adds v2 fixture evidence without deleting audit history.
+Runtime values are parameterized. Queries have a five-second timeout. Impact traversal is bounded to six hops. Recall selects up to four historical incidents plus a separate allowance of three recent operator notes. Policy-v1 audits remain stored but cannot authorize new actions; the seed migration adds v2 fixture evidence without deleting audit history.
 
 ## Verification and scope
 
@@ -175,8 +171,16 @@ The integration suites verify multi-hop impact, changed decisions, missing-evide
 
 ## Submission requirements
 
+### Verification at submission freeze
+
+The core passed 20 unit tests, both real-FalkorDB integration suites, six browser tests, type checking, and production build. A fresh clone of the public repository also passed `npm ci`, `npm run build`, `npm test`, and `npm run test:integration` without `.env.local` or model API keys. The database used for that rehearsal was the existing local FalkorDB instance; the test created and deleted its own isolated graph. The staged source passed a redacted secret scan, and `.env.local` was excluded from Git.
+
 The [official rules](https://www.wemakedevs.org/hackathons/falkordb/rules) require a public source repository, README/setup and graph data model, the Cypher queries or algorithms used, a working demo video, a live deployment or complete local setup, and the entered track names. They also require disclosure of AI assistance and that participants understand and can explain their implementation. Work must follow the event's timing and data-use rules.
 
-This repository includes setup instructions, the graph model, executable queries, tests, and a demo narration. The participant still needs to publish the repository and record/submit the demo video.
+This public repository includes setup instructions, the graph model, executable queries, tests, and a demo narration. The participant still needs to record and submit the demo video.
+
+## FAQ: is chat required?
+
+No. The [official challenge](https://www.wemakedevs.org/hackathons/falkordb) asks for a working agent with FalkorDB as its context layer and graph-shaped decisions/actions. Neither the brief nor the [rules](https://www.wemakedevs.org/hackathons/falkordb/rules) requires a chat box. Persistent conversation history is a Track 02 focus area, not a universal requirement to build a chatbot. The verified demo uses direct controls and inspectable records.
 
 **AI assistance:** developed with an OpenCode coding assistant. Participants must review, verify, and understand the submitted code. **Data:** synthetic. **License:** MIT; see [LICENSE](LICENSE).
