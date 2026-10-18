@@ -1,0 +1,223 @@
+.agent-walkthrough {
+  background: #fff;
+  border: 1px solid #dbe3d2;
+  border-radius: 13px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.walkthrough-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  justify-content: space-between;
+}
+.walkthrough-heading h2 {
+  font:
+    400 29px/1.3 Georgia,
+    serif;
+  color: #3b5333;
+  margin: 9px 0;
+}
+.walkthrough-heading p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #738366;
+  max-width: 800px;
+}
+.walkthrough-heading > .tiny-badge {
+  margin-top: 4px;
+}
+.agent-role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 23px;
+}
+.agent-role-grid article {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #e0e8d7;
+  border-radius: 10px;
+  background: #fbfdf8;
+  min-width: 0;
+}
+.agent-role-icon {
+  width: 37px;
+  height: 37px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: #ebf2e1;
+  color: #71965b;
+  flex-shrink: 0;
+}
+.agent-role-grid small {
+  font: 10px var(--mono);
+  letter-spacing: 1px;
+  color: #8b9e79;
+}
+.agent-role-grid h3 {
+  font-size: 16px;
+  font-weight: 550;
+  color: #506a3e;
+  margin: 8px 0 13px;
+}
+.agent-role-grid p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #798c68;
+  margin-top: 5px;
+}
+.agent-role-grid p strong {
+  font-weight: 550;
+  color: #567144;
+}
+.agent-role-status,
+.agent-role-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6e8b55;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.walkthrough-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 21px;
+}
+.walkthrough-steps a {
+  position: relative;
+  min-width: 0;
+  padding: 17px 14px;
+  border: 1px solid #e1e9d7;
+  border-radius: 8px;
+  background: #fff;
+}
+.walkthrough-steps a:hover {
+  background: #f4f8ed;
+  border-color: #b9cca7;
+}
+.walkthrough-steps a > span {
+  font: 12px var(--mono);
+  color: #9bb184;
+}
+.walkthrough-steps strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 550;
+  color: #637e4f;
+  margin: 9px 0;
+}
+.walkthrough-steps small {
+  display: block;
+  font-size: 12px;
+  color: #849773;
+  line-height: 1.8;
+}
+.walkthrough-steps a > svg {
+  position: absolute;
+  right: 13px;
+  top: 16px;
+  color: #9bb184;
+}
+.walkthrough-proof {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid #e5ebde;
+  color: #80996b;
+}
+.walkthrough-proof > svg {
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.walkthrough-proof p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.walkthrough-proof strong {
+  font-weight: 550;
+  color: #617e4c;
+}
+.walkthrough-limits {
+  margin-top: 16px;
+  color: #768e60;
+}
+.walkthrough-limits summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 12px;
+  list-style: none;
+}
+.walkthrough-limits p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+.walkthrough-limits pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: 12px/1.9 var(--sans);
+  border-left: 2px solid #dae6cc;
+  padding: 0 0 0 15px;
+}
+.walkthrough-limits p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#incident-controls,
+#graph-evidence,
+#context-controls,
+#handoff-workflow {
+  scroll-margin-top: 20px;
+}
+@media (max-width: 1050px) {
+  .agent-role-grid {
+    grid-template-columns: 1fr;
+  }
+  .walkthrough-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .agent-walkthrough {
+    padding: 20px 17px;
+  }
+  .walkthrough-heading {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .walkthrough-heading h2 {
+    font-size: 25px;
+  }
+  .walkthrough-heading p {
+    font-size: 13px;
+  }
+  .agent-role-grid article {
+    padding: 15px 12px;
+    gap: 10px;
+  }
+  .agent-role-grid h3 {
+    font-size: 15px;
+  }
+  .agent-role-grid p {
+    font-size: 12px;
+  }
+  .walkthrough-steps {
+    gap: 8px;
+  }
+  .walkthrough-steps a {
+    padding: 14px 12px;
+  }
+  .walkthrough-steps small {
+    font-size: 11px;
+  }
+}

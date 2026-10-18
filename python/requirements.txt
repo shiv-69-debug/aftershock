@@ -1,0 +1,1 @@
+graphrag-sdk[litellm,sentence-transformers,pdf,markdown]==1.4.0
