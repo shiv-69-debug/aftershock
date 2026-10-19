@@ -5,8 +5,9 @@
 **AFTERSHOCK uses FalkorDB to trace incident impact, revise mitigation proposals when constraints change, and hand off verified sandbox actions between two persistent, bounded agents.**
 
 - **Public source:** https://github.com/shiv-69-debug/aftershock
+- **Demo video:** [Watch AFTERSHOCK on YouTube](https://youtu.be/iMFVyXUvfuM) · [Download the MP4](https://github.com/shiv-69-debug/aftershock/releases/tag/demo-v1).
 - **Run the verified demo locally:** `npm ci` → start Docker Desktop → `npm run demo` → http://127.0.0.1:3000/workspace
-- **Demo narration:** [docs/demo-script.md](docs/demo-script.md). A recorded submission video must still be supplied.
+- **Demo narration:** [docs/demo-script.md](docs/demo-script.md).
 - **Entered tracks:** Agents That Act on Connected Data; Agent Memory and Coordination.
 
 ## Submission scope — read this first
@@ -177,7 +178,7 @@ The core passed 20 unit tests, both real-FalkorDB integration suites, six browse
 
 The [official rules](https://www.wemakedevs.org/hackathons/falkordb/rules) require a public source repository, README/setup and graph data model, the Cypher queries or algorithms used, a working demo video, a live deployment or complete local setup, and the entered track names. They also require disclosure of AI assistance and that participants understand and can explain their implementation. Work must follow the event's timing and data-use rules.
 
-This public repository includes setup instructions, the graph model, executable queries, tests, and a demo narration. The participant still needs to record and submit the demo video.
+This public repository includes setup instructions, the graph model, executable queries, tests, a demo narration, and a [recorded demo](https://youtu.be/iMFVyXUvfuM). These are public project artifacts; the event deadline was missed, and they do not establish an accepted or completed hackathon submission.
 
 ## FAQ: is chat required?
 
